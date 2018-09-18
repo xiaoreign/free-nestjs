@@ -25,9 +25,8 @@ export class AuthService {
         js_code:request.code,
         grant_type:'authorization_code'
     }
-    let url = request_url+"?appid="+req.appid+'&secret='+req.secret+'&js_code='+req.js_code+'&grant_type=authorization_code'
     return new Promise((resolve, reject) => {
-      this.httpService.get(url).subscribe((res:any)=>{
+      this.httpService.get(request_url,{params:req}).subscribe((res:any)=>{
         if(res.status == 200)
         resolve(res.data)
       });

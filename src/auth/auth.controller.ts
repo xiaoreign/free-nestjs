@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards, Query, HttpService } from '@nestjs/common';
+import { Controller, Get, UseGuards, Query, HttpService, Param} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 
@@ -8,9 +8,9 @@ export class AuthController {
               private readonly httpService: HttpService
   ) {}
 
-  @Get('index')
-  root() {
-    return {data:'hello world!'};
+  @Get('find')
+  async find(@Query() params){
+    console.log(params)
   }
 
   @Get('token')
@@ -28,6 +28,10 @@ export class AuthController {
   @Get('data')
   @UseGuards(AuthGuard('jwt'))
   findAll() {
+    const success = true;
+    return {
+      success
+    }
     // this route is restricted
   }
 }
