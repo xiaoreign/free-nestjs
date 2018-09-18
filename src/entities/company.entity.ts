@@ -8,6 +8,6 @@ export class Company {
     @Column()
     name: string
 
-    @OneToMany(type => Employee, employee => employee.company)
-    employees: Employee[]
+    // @OneToMany(type => Employee, employee => employee.company)
+    // employees: Employee[]
 }
