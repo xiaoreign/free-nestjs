@@ -14,12 +14,9 @@ export class EmployeeService {
     }
     async create(): Promise<string> {
         let employee = new Employee();
-        let company = new Company();
-        company.name = 'asc';
         employee.name = 'novak';
         employee.age = 20;
         employee.address = 'shanghai';
-        employee.company = company;
         console.log(employee)
 
         return this.employeeRepository.save(employee)
