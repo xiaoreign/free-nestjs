@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { DataformService } from '../shared/dataForm.service'
 
 
 @Module({
   controllers: [],
-  providers: [],
+  providers: [DataformService],
 })
 export class ControllerModule {}
